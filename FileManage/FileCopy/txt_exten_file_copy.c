@@ -74,7 +74,7 @@ void* copyToTempExten(const char* res_dir)
     while(!feof(res_file))
     {
         pbuff = fgets(buff, sizeof(buff) , res_file);
-        if(!pbuff && buff[][0] == ""){
+        if(!pbuff){
             ERR("read file err");
             getchar();
             exit(1);

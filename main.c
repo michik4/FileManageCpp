@@ -4,7 +4,7 @@
 
 int main(const int argc, const char* argv[])
 {
-    LOGF(argv[0]);
+    LOG(argv[0]);
     wasFlagsAllow(argc, argv);
     toBinConvert("E:\\project\\FileManageC\\res\\text.txt");
     

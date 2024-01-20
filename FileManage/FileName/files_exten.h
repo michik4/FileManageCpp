@@ -1,3 +1,3 @@
 #pragma 
 
-char* NoExtenDir(const char* file_dir);
+char* noExtenDir(const char* file_dir);

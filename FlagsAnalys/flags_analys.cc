@@ -4,7 +4,7 @@
 
 bool wasFlagsAllow(const int argc, const char* argv[])
 {
-    std::cout << "wFA1" << std::endl;
+    //std::cout << "wFA1" << std::endl;
     return true;
 }
 

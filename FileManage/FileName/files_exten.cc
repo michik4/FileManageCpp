@@ -4,7 +4,7 @@
 
 #include"debug.h"
 
-char* NoExtenDir(const char* file_dir){
+char* noExtenDir(const char* file_dir){
     std::string str_file_dir;
     char* noexten_dir;
     size_t dotindex;

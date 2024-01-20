@@ -3,6 +3,7 @@
 #include <stdlib.h> 
 #include <stdio.h>
 #include <fstream>
+#include <cstring>
 
 #include"debug.h"
 #include"files_exten.h"
@@ -13,6 +14,14 @@ void* toBinConvert(const char* res_dir)
     FILE* res_file;
     FILE* temp_file;
 
+    char* temp_dir;
+    int dot_index;
+
+    int temp_dir_len_w_extention;
+    int res_dir_len_no_extention; 
+    char* res_extention;
+    const char* temp_extention = ".temp";
+
     res_file = fopen(res_dir, "r");
 
     if(!res_file){
@@ -22,15 +31,30 @@ void* toBinConvert(const char* res_dir)
 
         ERROM("get char to close");
         getchar();
-        return NULL;
+        exit(1);
     }
 
     LOG("file open");
-    const char* temp_dir = res_dir; 
-    
-    //temp_dir[0] = NoExtenDir(res_dir);
 
-    LOG(temp_dir);
+    res_extention = strchr(res_dir, '.');
+    if(res_extention == NULL){
+        ERR("file dont has extention");
+        fclose(res_file);
+        getchar();
+        exit(1);
+    }
+
+    res_dir_len_no_extention = strlen(res_dir) - strlen(res_extention);
+    for(int i = 0; i < res_dir_len_no_extention; i++){
+        temp_dir[i] = res_dir[i];
+    }
+
+    temp_dir_len_w_extention = res_dir_len_no_extention + strlen(temp_extention);
+    for(int i = res_dir_len_no_extention; i < temp_dir_len_w_extention; i++){
+        temp_dir[i] = temp_extention[i - (temp_dir_len_w_extention - strlen(temp_extention))];
+    }
+    temp_dir[temp_dir_len_w_extention] = '\0';
+
     temp_file = fopen(temp_dir, "w");
 
     if(!temp_file){
@@ -39,8 +63,9 @@ void* toBinConvert(const char* res_dir)
         fclose(res_file);
         fclose(temp_file);
         getchar();
-        return NULL;
+        exit(1);
     }
+
     LOG(temp_dir);
     LOG("temp file open");
 

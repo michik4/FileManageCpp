@@ -12,6 +12,7 @@
                 "${fileDirname}\\FlagsAnalys\\flags_analys.cc",
                 "${fileDirname}\\FileManage\\Bin\\bin_converter.c",
                 "${fileDirname}\\FileManage\\FileName\\files_exten.cc",
+                "${fileDirname}\\FileManage\\FileCopy\\txt_exten_file_copy.c",
 
                 "-DDEBUG",
 
@@ -19,7 +20,6 @@
                 "-I","${fileDirname}\\FlagsAnalys",
                 "-I","${fileDirname}\\FileManage\\FileCopy",
                 "-I","${fileDirname}\\FileManage\\Bin", 
-                "-I","${fileDirname}\\FileManage\\FileName", 
 
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"

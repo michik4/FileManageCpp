@@ -9,9 +9,10 @@
                 "-g",
                 "${file}",
                 "${fileDirname}\\FlagsAnalys\\flags_analys.cc",
-                "${fileDirname}\\FlagsAnalys\\allow_flags.cc",
-                "-I",
-                "${fileDirname}\\FlagsAnalys",
+                "${fileDirname}\\FileManage\\Bin\\bin_converter.cc",
+                "-I","${fileDirname}\\FlagsAnalys",
+                "-I","${fileDirname}\\FileManage\\FileCopy",
+                "-I","${fileDirname}\\FileManage\\Bin",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],

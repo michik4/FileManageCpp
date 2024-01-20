@@ -1,8 +1,10 @@
 #include<iostream>
-#include<map>
+
 #include"flags_analys.hh"
+#include"bin_converter.hh"
 
 int main(const int argc, const char* argv[])
 {
-    flagsAnalys::wasFlagsAllow(argc, argv);
-}   
+    wasFlagsAllow(argc, argv);
+    toHexConvert("", "");
+}    

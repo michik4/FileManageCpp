@@ -1,6 +1,12 @@
 #pragma once
 
-namespace flagsAnalys
+#include<iostream>
+
+bool wasFlagsAllow(const int argc, const char* argv[]);
+struct flags_analys
 {
-    bool wasFlagsAllow(const int argc, const char* argv[]);
-} // namespace flagsAnalys
+    std::string allow_flags;
+};
+
+
+

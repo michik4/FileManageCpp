@@ -1,14 +1,14 @@
-#include<iostream>
-#include<string>
-
-#include"flags_analys.hh"
-#include"bin_converter.hh"
+#include"flags_analys.h"
+#include"bin_converter.h"
+#include"debug.h"
 
 int main(const int argc, const char* argv[])
 {
+    LOGF(argv[0]);
     wasFlagsAllow(argc, argv);
     toBinConvert("E:\\project\\FileManageC\\res\\text.txt");
     
+    LOG("main end");
     getchar();
 }    
 

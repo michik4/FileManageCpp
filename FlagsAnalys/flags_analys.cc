@@ -1,4 +1,4 @@
-#include"flags_analys.hh"
+#include"flags_analys.h"
 
 #include<iostream>
 

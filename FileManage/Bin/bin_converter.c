@@ -1,24 +1,19 @@
-#include"bin_converter.hh"
+#include"bin_converter.h"
 
-#include <cstdlib> 
-#include <cstdio>
-#include <fstream> 
-#include <string>
+#include <stdlib.h> 
+#include <stdio.h>
+#include <fstream>
 
-#include"debug.hh"
-#include"files_exten.hh"
+#include"debug.h"
+#include"files_exten.h"
 
 //convert file to binary format 
-void* toBinConvert(const char* file_dir)
+void* toBinConvert(const char* res_dir)
 {
-    char* temp_dir;
     FILE* res_file;
     FILE* temp_file;
 
-    std::string str_file_dir;
-    size_t dotindex;
-
-    res_file = fopen(file_dir, "r");
+    res_file = fopen(res_dir, "r");
 
     if(!res_file){
         ERR("file dont open");
@@ -31,17 +26,11 @@ void* toBinConvert(const char* file_dir)
     }
 
     LOG("file open");
-
-    str_file_dir = file_dir;    
-    dotindex = str_file_dir.find(".");
-    std::string str_temp_dir = str_file_dir.substr(0, dotindex);
-    str_temp_dir.append(".temp");
-    temp_dir = str_temp_dir.data();
+    const char* temp_dir = res_dir; 
     
-    //temp_dir[0] = NoExtenDir(file_dir);
+    //temp_dir[0] = NoExtenDir(res_dir);
 
     LOG(temp_dir);
-
     temp_file = fopen(temp_dir, "w");
 
     if(!temp_file){
@@ -62,7 +51,7 @@ void* toBinConvert(const char* file_dir)
     return NULL;
 }
 
-void* toHexConvert(const char* file_dir, const char* targ_dir){
+void* toHexConvert(const char* res_dir, const char* targ_dir){
 
     return NULL;
 }

@@ -3,7 +3,8 @@
     #define AC_GREEN "\x1b[32;1m"
     #define AC_RED   "\x1b[31;1m"
     #define AC_RESET "\x1b[0m"
-    #define LOG(M) fprintf(stderr, AC_CYAN "[INFO]%s [%d]: %s\n" AC_RESET, __FILE__, __LINE__, M)
+    #define LOG(M) fprintf(stderr, AC_CYAN "[INFO] %s [%d]: %s\n" AC_RESET, __FILE__, __LINE__, M)
+    #define LOGF(M) fprintf(stderr, AC_CYAN "[INFO] %s: %s\n" AC_RESET, __func__, M)
     #define ERR(M) fprintf(stderr, AC_RED "[ERRO] %s [%d]: %s\n" AC_RESET, __FILE__, __LINE__, M)
     #define ERROM(M) fprintf(stderr, AC_RED "[ERRO] %s\n" AC_RESET, M)
 #else

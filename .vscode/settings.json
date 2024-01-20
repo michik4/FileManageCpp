@@ -58,6 +58,7 @@
         "fstream": "cpp",
         "functional": "cpp",
         "xhash": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "bin_converter.h": "c"
     }
 }

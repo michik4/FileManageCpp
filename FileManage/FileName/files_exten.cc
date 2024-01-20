@@ -1,8 +1,8 @@
-#include"files_exten.hh"
+#include"files_exten.h"
 
 #include<string>
 
-#include"debug.hh"
+#include"debug.h"
 
 char* NoExtenDir(const char* file_dir){
     std::string str_file_dir;

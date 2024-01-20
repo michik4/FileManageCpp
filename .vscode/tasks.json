@@ -10,7 +10,7 @@
                 "-g",
                 "${file}",
                 "${fileDirname}\\FlagsAnalys\\flags_analys.cc",
-                "${fileDirname}\\FileManage\\Bin\\bin_converter.cc",
+                "${fileDirname}\\FileManage\\Bin\\bin_converter.c",
                 "${fileDirname}\\FileManage\\FileName\\files_exten.cc",
 
                 "-DDEBUG",

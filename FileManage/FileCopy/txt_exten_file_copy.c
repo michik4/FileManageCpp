@@ -10,6 +10,8 @@
 //copy file to .temp 
 void* copyToTempExten(const char* res_dir)
 {
+    LOG("copy start");
+    
     FILE* res_file;
     FILE* temp_file;
 
@@ -36,6 +38,7 @@ void* copyToTempExten(const char* res_dir)
         exit(1);
     }
 
+    LOG(res_dir);
     LOG("file open");
 
     res_extention = strchr(res_dir, '.');
@@ -81,7 +84,7 @@ void* copyToTempExten(const char* res_dir)
         }
         fprintf(temp_file, "%s", buff);
     }
-    LOG("file end succses");
+    LOG("file copy succses");
 
     fclose(res_file);
     fclose(temp_file);

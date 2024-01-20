@@ -13,7 +13,7 @@
             "args": [
                 "-w",
             ],
-            "externalConsole": false
+            "externalConsole": true
         }
     ]
 }

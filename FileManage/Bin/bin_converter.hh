@@ -1,3 +1,4 @@
 #pragma once 
 
-void* toHexConvert(const char* file_dir, const char* dest_dir);
+void* toBinConvert(const char* file_dir);
+void* toHexConvert(const char* file_dir, const char* targ_dir);

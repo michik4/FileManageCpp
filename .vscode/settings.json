@@ -57,6 +57,7 @@
         "vector": "cpp",
         "fstream": "cpp",
         "functional": "cpp",
-        "xhash": "cpp"
+        "xhash": "cpp",
+        "string": "cpp"
     }
 }

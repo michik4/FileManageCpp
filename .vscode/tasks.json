@@ -6,13 +6,21 @@
             "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
+
                 "-g",
                 "${file}",
                 "${fileDirname}\\FlagsAnalys\\flags_analys.cc",
                 "${fileDirname}\\FileManage\\Bin\\bin_converter.cc",
+                "${fileDirname}\\FileManage\\FileName\\files_exten.cc",
+
+                "-DDEBUG",
+
+                "-I","${fileDirname}\\Boot\\Debug",
                 "-I","${fileDirname}\\FlagsAnalys",
                 "-I","${fileDirname}\\FileManage\\FileCopy",
-                "-I","${fileDirname}\\FileManage\\Bin",
+                "-I","${fileDirname}\\FileManage\\Bin", 
+                "-I","${fileDirname}\\FileManage\\FileName", 
+
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],

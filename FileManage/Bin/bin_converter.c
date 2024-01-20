@@ -14,6 +14,9 @@ void* toBinConvert(const char* res_dir)
     FILE* res_file;
     FILE* temp_file;
 
+    char buff[50];
+    char* pbuff;
+
     char* temp_dir;
     int dot_index;
 
@@ -69,11 +72,22 @@ void* toBinConvert(const char* res_dir)
     LOG(temp_dir);
     LOG("temp file open");
 
-    
+    while (!feof(res_file))
+    {
+        pbuff = fgets(buff, sizeof(buff) , res_file);
+        if(pbuff = NULL){
+            ERR("read file err");
+            getchar();
+            exit(1);
+        }
+        fprintf(temp_file, "%s", buff);
+    }
+    LOG("file end succes");
+
     fclose(res_file);
     fclose(temp_file);
 
-    return NULL;
+    return temp_file;
 }
 
 void* toHexConvert(const char* res_dir, const char* targ_dir){

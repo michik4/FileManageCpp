@@ -5,8 +5,7 @@
 int main(const int argc, const char* argv[])
 {
     LOG(argv[0]);
-    wasFlagsAllow(argc, argv);
-    toBinConvert("E:\\project\\FileManageC\\res\\text.txt");
+    toBinConvert("E:\\project\\FileManageC\\res\\text123.txt");
     
     LOG("main end");
     getchar();

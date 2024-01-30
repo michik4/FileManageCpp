@@ -1,3 +1,3 @@
 #pragma once
 
-char* noExtenDir(const char* file_dir);
+char* extreduc(const char* file_dir, const char* desired_ext);

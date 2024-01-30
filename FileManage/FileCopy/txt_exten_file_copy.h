@@ -1,3 +1,3 @@
 #pragma once
 
-void* copyToTempExten(const char* res_dir);
+void* txtfcopy(const char* res_dir, const char* ext);

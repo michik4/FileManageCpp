@@ -6,88 +6,105 @@
 #include <cstring>
 
 #include"debug.h"
+#include"files_exten.h"
 
-//copy file to .temp 
-void* copyToTempExten(const char* res_dir)
-{
-    LOG("copy start");
+#define MAX_
+
+//copy file to var extention
+void* txtfcopy(const char* res_dir, const char* ext)
+{    
+    FILE* _res_file;
+    FILE* _temp_file;
+
+    int _bufsize;
+    int _line;
     
-    FILE* res_file;
-    FILE* temp_file;
+    char* _buf;
+    char* _pbuf;
 
-    char buff[60];
-    char* pbuff;
+    const char* _temp_dir = (char*)malloc(260);
+    const char* _temp_ext = ext;
 
-    char* temp_dir;
-    int dot_index;
+    _res_file = fopen(res_dir, "r");
 
-    int temp_dir_len_w_extention;
-    int res_dir_len_no_extention; 
-    char* res_extention;
-    const char* temp_extention = ".temp";
-
-    res_file = fopen(res_dir, "r");
-
-    if(!res_file){
+    //resource file don't open exeption
+    if(!_res_file){
+        
         ERR("file dont open");
 
-        fclose(res_file);
+        fclose(_res_file);
 
-        ERROM("get char to close");
-        getchar();
-        exit(1);
+        return NULL;
     }
 
     LOG(res_dir);
     LOG("file open");
 
-    res_extention = strchr(res_dir, '.');
-    if(res_extention == NULL){
-        ERR("file dont has extention");
-        fclose(res_file);
-        getchar();
-        exit(1);
+    _temp_dir = extreduc(res_dir, _temp_ext);
+
+    if(!_temp_dir){
+        return NULL;
     }
 
-    res_dir_len_no_extention = strlen(res_dir) - strlen(res_extention);
-    for(int i = 0; i < res_dir_len_no_extention; i++){
-        temp_dir[i] = res_dir[i];
-    }
+    _temp_file = fopen(_temp_dir, "w");
 
-    temp_dir_len_w_extention = res_dir_len_no_extention + strlen(temp_extention);
-    for(int i = res_dir_len_no_extention; i < temp_dir_len_w_extention; i++){
-        temp_dir[i] = temp_extention[i - (temp_dir_len_w_extention - strlen(temp_extention))];
-    }
-    temp_dir[temp_dir_len_w_extention] = '\0';
+    //temp file don't open exeption
+    if(!_temp_file){
 
-    temp_file = fopen(temp_dir, "w");
-
-    if(!temp_file){
         ERR("temp file dont open");
-        ERROM("get char to close");
-        fclose(res_file);
-        fclose(temp_file);
-        getchar();
-        exit(1);
+
+        fclose(_res_file);
+        fclose(_temp_file);
+
+        return NULL;
     }
 
-    LOG(temp_dir);
+    LOG("temp dir : %s", _temp_dir);
     LOG("temp file open");
 
-    while(!feof(res_file))
-    {
-        pbuff = fgets(buff, sizeof(buff) , res_file);
-        if(!pbuff){
+    LOG("copy start");
+    
+    #ifdef DEBUG
+        fprintf(stderr, "%s%s%s", "\n** ", _temp_dir, " **\n");
+    #endif
+
+    _line = 1;
+    _bufsize = 100 * sizeof(_buf);
+    
+    //copy proc
+    do{
+        _buf = (char*)malloc(_bufsize * sizeof(_buf));
+        _pbuf = fgets(_buf, _bufsize , _res_file);
+
+        if(!_pbuf && !feof(_res_file)){
+
             ERR("read file err");
-            getchar();
-            exit(1);
+
+            fclose(_res_file);
+            fclose(_temp_file);
+
+            return NULL;
         }
-        fprintf(temp_file, "%s", buff);
-    }
-    LOG("file copy succses");
 
-    fclose(res_file);
-    fclose(temp_file);
+        fprintf(_temp_file, "%s", _buf);
 
-    return temp_file;
+        #ifdef DEBUG
+            fprintf(stderr, "%-8d%s%s", _line++, "-| ", _buf); // на последней пустой строке мусорный юникод 
+        #endif
+
+        free(_buf);
+        _buf = NULL;
+
+    }while(!feof(_res_file));
+
+    #ifdef DEBUG
+        fprintf(stderr, "\n\n");
+    #endif
+
+    LOG("file copy success");
+
+    fclose(_res_file);
+    fclose(_temp_file);
+
+    return _temp_file;
 }

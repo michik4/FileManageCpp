@@ -6,9 +6,8 @@
 int main(const int argc, const char* argv[])
 {
     LOG(argv[0]);
-    copyToTempExten("E:\\project\\FileManageC\\res\\text123.txt");
+    txtfcopy("E:\\project\\FileManageC\\res\\text123.txt", ".temp");
     
     LOG("main end");
     getchar();
 }    
-

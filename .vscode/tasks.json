@@ -8,22 +8,24 @@
                 "-fdiagnostics-color=always",
 
                 "-g",
+
                 "${file}",
-                "${fileDirname}\\FlagsAnalys\\flags_analys.cc",
-                "${fileDirname}\\FileManage\\Bin\\bin_converter.c",
-                "${fileDirname}\\FileManage\\FileName\\files_exten.c",
-                "${fileDirname}\\FileManage\\FileCopy\\txt_exten_file_copy.c",
+
+                "${fileDirname}\\flags\\flags_analys.c",
+
+                "${fileDirname}\\file\\Bin\\bin_converter.c",
+                "${fileDirname}\\file\\FileName\\file_exten.c",
+                "${fileDirname}\\file\\FileCopy\\file_copy_txt.c",
+                "${fileDirname}\\file\\FileCopy\\file_copy_hex.c",
+
+                "${fileDirname}\\boot\\system\\system.c",
 
                 "-DDEBUG",
 
-                "-I","${fileDirname}\\Boot\\Debug",
-                "-I","${fileDirname}\\FlagsAnalys",
-                "-I","${fileDirname}\\FileManage\\FileCopy",
-                "-I","${fileDirname}\\FileManage\\Bin", 
-                "-I","${fileDirname}\\FileManage\\FileName",
+                "-I","${fileDirname}\\include",
 
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "${fileDirname}\\${fileBasenameNoExtension}.a"
             ],
             "options": {
                 "cwd": "${fileDirname}"

@@ -7,15 +7,9 @@
 int main(const int argc, const char* argv[])
 {
     LOG("main start");
-    char* _buf;
-
-    LOG("%s", "sys scan start");
-    if(sysscan() == 'W'){
-        LOG("%s", "is WINDOWS");
-    } 
-
+    LOG(_FILE); 
+    LOG(_OS);
     //fbinconv("E:\\project\\FileManageC\\res\\Noize MC - Egoizm.mp3");
-
     //txtfcopy("E:\\project\\FileManageC\\res\\.txt", ".temp");
     
     LOG("main end");

@@ -1,8 +1,16 @@
 #ifndef SYSTEM_H
-#define SYSTEM_H
+#define SYSTEM_H 
 
-#define MAX_PATH 
+#ifdef _WIN32
+#define _FILE __FILE__
+#define _OS "WINDOWS"
+#endif
 
-char sysscan();
+#ifdef __unix__
+#include <unistd.h>
+#include <linux/limits.h>
+#define _FILE getcwd()                                  
+#define _OS "LINUX"                                     
+#endif
 
-#endif //SYSTEM_H
+#endif //SYSTEM_H 

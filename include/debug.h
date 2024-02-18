@@ -1,3 +1,5 @@
+#include "system.h"
+
 #ifdef DEBUG
     #define AC_CYAN  "\x1b[36;1m"
     #define AC_GREEN "\x1b[32;1m"
@@ -5,14 +7,14 @@
     #define AC_RESET "\x1b[0m"
     #define LOG(...)                                                                        \
     do {                                                                                    \
-        fprintf(stderr, AC_CYAN "[INF] %s (%d)\t " AC_RESET, __FILE__, __LINE__);           \
+        fprintf(stderr, AC_CYAN "[INF] %s (%d)\t " AC_RESET, _FILE, __LINE__);              \
         fprintf(stderr, __VA_ARGS__);                                                       \
         fprintf(stderr, "\n");                                                              \
     } while (0)   
 
     #define ERR(...)                                                                        \
     do {                                                                                    \
-        fprintf(stderr, AC_RED "[ERR] %s (%d)\t " AC_RESET, __FILE__, __LINE__);            \
+        fprintf(stderr, AC_RED "[ERR] %s (%d)\t " AC_RESET, _FILE, __LINE__);               \
         fprintf(stderr, __VA_ARGS__);                                                       \
         fprintf(stderr, "\n");                                                              \
     } while (0)     

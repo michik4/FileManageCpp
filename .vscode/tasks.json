@@ -8,17 +8,13 @@
                 "-fdiagnostics-color=always",
 
                 "-g",
-
+                
                 "${file}",
-
                 "${fileDirname}\\flags\\flags_analys.c",
-
                 "${fileDirname}\\file\\Bin\\bin_converter.c",
                 "${fileDirname}\\file\\FileName\\file_exten.c",
                 "${fileDirname}\\file\\FileCopy\\file_copy_txt.c",
                 "${fileDirname}\\file\\FileCopy\\file_copy_hex.c",
-
-                "${fileDirname}\\boot\\system\\system.c",
 
                 "-DDEBUG",
 

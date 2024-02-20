@@ -2,8 +2,7 @@
 
 #include <stdlib.h> 
 #include <stdio.h>
-#include <fstream>
-#include <cstring>
+#include <string.h>
 
 #include"debug.h"
 #include"file_exten.h"
@@ -23,8 +22,9 @@ void* txtfcopy(const char* res_dir, const char* ext)
     const char* _temp_dir = (char*)calloc(260, sizeof(_temp_dir));
     const char* _temp_ext = ext;
 
+	LOG("%s", res_dir);
     _res_file = fopen(res_dir, "r");
-
+	
     //resource file don't open exeption
     if(!_res_file){
         
@@ -35,7 +35,6 @@ void* txtfcopy(const char* res_dir, const char* ext)
         return NULL;
     }
 
-    LOG(res_dir);
     LOG("file open");
 
     if(!(_temp_dir = extreduc(res_dir, _temp_ext))){
@@ -43,7 +42,6 @@ void* txtfcopy(const char* res_dir, const char* ext)
     }
 
     _temp_file = fopen(_temp_dir, "w");
-    free((void*)_temp_dir);
 
     //temp file don't open exeption
     if(!_temp_file){

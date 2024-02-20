@@ -1,0 +1,3 @@
+/home/mihalixz/FileManageC/FileManageCpp/CMakeFiles/FileManageC.dir
+/home/mihalixz/FileManageC/FileManageCpp/CMakeFiles/edit_cache.dir
+/home/mihalixz/FileManageC/FileManageCpp/CMakeFiles/rebuild_cache.dir

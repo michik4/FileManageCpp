@@ -1,7 +1,8 @@
 #include"file_exten.h"
 
-#include<cstring>
-#include<fstream>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 #include"debug.h"
 //reduction file extention

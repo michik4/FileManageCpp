@@ -2,8 +2,7 @@
 
 #include <stdlib.h> 
 #include <stdio.h>
-#include <fstream>
-#include <cstring>
+#include <stdint.h>
 
 #include"debug.h"
 #include"file_exten.h"
@@ -33,16 +32,16 @@ void* fbinconv(const char* res_dir)
     _file_size = ftell(_res_file);
     fseek(_res_file, 0, SEEK_SET);
 
-    LOG("file size = %d bytes", _file_size);
+    LOG("file size = %lld bytes", _file_size);
 
     int64 _result = fread(_buf, sizeof(char), _file_size, _res_file);
     _result *= sizeof(uint8_t);
 
-    LOG("buf size = %d bytes", _result);
+    LOG("buf size = %lld bytes", _result);
     
     if(_result != _file_size){
         ERR("read error");
-        ERR("result = %d bytes", _result);
+        ERR("result = %lld bytes", _result);
         ERR("error buf");
         
         return NULL;

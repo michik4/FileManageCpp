@@ -1,0 +1,1 @@
+/usr/bin/cc -rdynamic CMakeFiles/FileManageC.dir/main.c.o CMakeFiles/FileManageC.dir/flags/flags_analys.c.o CMakeFiles/FileManageC.dir/file/rbin/bin_converter.c.o CMakeFiles/FileManageC.dir/file/name/file_exten.c.o CMakeFiles/FileManageC.dir/file/copy/file_copy_txt.c.o CMakeFiles/FileManageC.dir/file/copy/file_copy_bin.c.o -o FileManageC 

@@ -1,5 +1,5 @@
 #include "file_copy.h"
-#include <fstream>
+#include <stdio.h>
 
 int a(){
     fprintf(stderr, "anal\n");

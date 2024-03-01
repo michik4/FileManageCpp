@@ -21,6 +21,12 @@ void* txtfcopy(const char* res_dir, const char* ext)
 
     const char* _temp_dir = (char*)calloc(260, sizeof(_temp_dir));
     const char* _temp_ext = ext;
+	
+	//resource file dir don't exist
+	if(res_dir == NULL){
+		ERR("Res dir is NULL");
+		return 0;	
+	}
 
 	LOG("%s", res_dir);
     _res_file = fopen(res_dir, "r");
@@ -82,9 +88,8 @@ void* txtfcopy(const char* res_dir, const char* ext)
             return NULL;
         }
 
-        fprintf(_temp_file, "%s", _buf);
-
         #ifdef DEBUG
+            fprintf(_temp_file, "%s", _buf);
             fprintf(stderr, "%-8d%s%s", _line++, "-| ", _buf); 
         #endif
 

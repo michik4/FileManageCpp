@@ -1,4 +1,4 @@
-#include"file_exten.h"
+#include"exten.h"
 
 #include <string.h>
 #include <stdlib.h>
@@ -6,7 +6,7 @@
 
 #include"debug.h"
 //reduction file extention
-char* extreduc(const char* res_dir, const char* desired_ext){
+char* exted(const char* res_dir, const char* desired_ext){
     
     const char* _res_dir;
     const char* _res_ext;

@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-#include"flags_analys.h"
-#include"file_copy.h"
+#include"flag.h"
+#include"copy.h"
 #include"bin_converter.h"
 #include"debug.h"
 #include"system.h"
@@ -12,10 +12,14 @@ int main(const int argc, const char* argv[])
 	int i;
 
 	//LOG(_OS);
-    //fbinconv("E:\\project\\FileManageC\\res\\Noize MC - Egoizm.mp3");
-    txtfcopy(argv[1], ".temp");
+    //txtfcopy(argv[1], ".temp");
+    binfcopy(argv[1]);
     
     LOG("main end");
-    getchar();
+
+    #ifdef DEBUG
+        getchar();
+    #endif
+
 	return 0;
 }    

@@ -93,7 +93,7 @@ void* txtfcopy(const char* resdir, const char* ext)
         fprintf(stderr, "\n\n");
     #endif
 
-    LOG("file copy success");
+    OK("file copy success");
 
     fclose(_resf);
     fclose(_tempf);

@@ -12,7 +12,6 @@ add_definitions(-DDEBUG)
 set(SRC_LIST 
     "main.c"
     "flags/flags_analys.c"
-    "file/rbin/bin_converter.c"
     "file/name/exten.c"
     "file/copy/txt.c"
     "file/copy/bin.c"

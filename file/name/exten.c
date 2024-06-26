@@ -5,42 +5,51 @@
 #include <stdio.h>
 
 #include"debug.h"
+
 //reduction file extention
-char* exted(const char* res_dir, const char* desired_ext){
+char* exted(const char* fdir, const char* des_ext){
     
-    const char* _res_dir;
-    const char* _res_ext;
-    char* _desired_dir;
+    const char* _rdir;
+    const char* _rext;
+    char* _desdir;
     int _res_dir_len_no_ext;
-    int _desired_dir_len_w_ext;
+    int _des_dir_len;
 
-    _res_dir = res_dir;
-    _desired_dir = (char*)malloc(260);
-    _res_ext = strchr(_res_dir, '.');
+    _rdir = fdir;
+    _desdir = (char*)malloc(260);
+    _rext = strchr(_rdir, '.');
 
-    if(_res_ext == NULL){
+    // file without extention error
+    if(_rext == NULL){
         ERR("file don't has extention");
         return NULL;
     }
 
-    if(!strcmp(_res_dir, _res_ext)){
-        ERR("file is dotfile");
-        return NULL;
+    // dotfile check
+    if(!strcmp(_rdir, _rext)){
+        LOG("file is dotfile");
     }
 
-    _res_dir_len_no_ext = strlen(_res_dir) - strlen(_res_ext);
+    _res_dir_len_no_ext = strlen(_rdir) - strlen(_rext);
 
     for(int i = 0; i < _res_dir_len_no_ext; i++){
-        _desired_dir[i] = _res_dir[i];
+        _desdir[i] = _rdir[i];
     }
 
-    _desired_dir_len_w_ext = _res_dir_len_no_ext + strlen(desired_ext);
+    _des_dir_len = _res_dir_len_no_ext + strlen(des_ext);
 
-    for(int i = _res_dir_len_no_ext; i < _desired_dir_len_w_ext; i++){
-        _desired_dir[i] = desired_ext[i - _res_dir_len_no_ext];
+    for(int i = _res_dir_len_no_ext; i < _des_dir_len; i++){
+        _desdir[i] = des_ext[i - _res_dir_len_no_ext];
     }
 
-    _desired_dir[_desired_dir_len_w_ext] = '\0';
+    _desdir[_des_dir_len] = '\0';
 
-    return _desired_dir;
+    return _desdir;
+}
+
+// output extention of file
+char* oext(const char* fdir){
+    char* _fext;
+    _fext = strchr(fdir, '.'); 
+    return ++_fext;
 }

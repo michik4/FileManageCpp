@@ -14,14 +14,7 @@
 
 	#define OK(...)                                                                        	\
 	do {                                                                                    \
-		fprintf(stderr, AC_GREEN "[INFO] %s (%d)\t ", __FILE__, __LINE__);          		\
-		fprintf(stderr, __VA_ARGS__);                                                       \
-		fprintf(stderr, AC_RESET "\n");                                                     \
-	} while (0)   
-
-	#define ERR(...)                                                                        \
-	do {                                                                                    \
-		fprintf(stderr, AC_RED "[ERRO] %s (%d)\t ", __FILE__, __LINE__);           			\
+		fprintf(stderr, AC_GREEN "[ OK ] %s (%d)\t ", __FILE__, __LINE__);          		\
 		fprintf(stderr, __VA_ARGS__);                                                       \
 		fprintf(stderr, AC_RESET "\n");                                                     \
 	} while (0)     
@@ -34,8 +27,13 @@
 	#define AC_RED
 	#define AC_RESET
 	#define LOG(...)
-	#define ERR(...)
 	#define ERROM(...)
 
 #endif
 
+#define ERR(...)                                                                        \
+do {                                                                                    \
+	fprintf(stderr, AC_RED "[ERRO] %s (%d)\t ", __FILE__, __LINE__);           			\
+	fprintf(stderr, __VA_ARGS__);                                                       \
+	fprintf(stderr, AC_RESET "\n");                                                     \
+} while (0)   
